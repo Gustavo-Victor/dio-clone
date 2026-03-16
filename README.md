@@ -1,16 +1,26 @@
-# React + Vite
+# DIO Clone 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## ❓ Sobre
 
-Currently, two official plugins are available:
+Projeto para fins didáticos sobre clone das páginas cadastro, login e home da DIO (versão antiga). Clique [aqui](https://github.com/digitalinnovationone/trilha-react-desafio-2) para saber mais.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+## 🛠 Tecnologias e Ferramentas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [ReactJS](https://pt-br.reactjs.org/)
+- [Styled Components](https://styled-components.com/)
+- [Vite](https://vitejs.dev/)
+- [React Icons](https://www.npmjs.com/package/react-icons)
+- [Axios](https://www.npmjs.com/package/axios)
+- [JSON Server](https://www.npmjs.com/package/json-server)
 
-## Expanding the ESLint configuration
+Veja como ficou o arquivo [package.json](./package.json) 
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## 📝 Licença 
+
+O projeto está sob a Licensa MIT 
+
+Qualquer pessoa pode usar, clonar e contribuir com este projeto. 
+
+Clique [aqui](./LICENSE) para saber mais  
