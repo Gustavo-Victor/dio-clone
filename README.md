@@ -13,6 +13,7 @@ Projeto para fins didáticos sobre clone das páginas cadastro, login e home da 
 - [React Icons](https://www.npmjs.com/package/react-icons)
 - [Axios](https://www.npmjs.com/package/axios)
 - [JSON Server](https://www.npmjs.com/package/json-server)
+- [TypeScript](https://www.typescriptlang.org/)
 
 Veja como ficou o arquivo [package.json](./package.json) 
 
