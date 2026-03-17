@@ -9,17 +9,18 @@ import {
 } from "./style";
 import Button from "../Button";
 import logo from "../../assets/logo-dio.png";
-import { useEffect } from "react";
+//import { useEffect } from "react";
 
-export default function Header({authenticated}) {
+export default function Header() {
   const { pathname } = useLocation();
+  const authenticated = false; 
 
-  useEffect(() => {
-    console.log(pathname)
-    if(pathname === "/feed") {
-      authenticated == true; 
-    }
-  }, [pathname, authenticated]);
+  // useEffect(() => {
+  //   console.log(pathname)
+  //   if(pathname === "/feed") {
+  //     authenticated == true; 
+  //   }
+  // }, [pathname, authenticated]);
 
   return (
     <Wrapper>
@@ -33,8 +34,8 @@ export default function Header({authenticated}) {
               <SearchInputContainer>
               <Input type="text" placeholder="Search..." />
               </SearchInputContainer>
-              <Link>Love Code</Link>
-              <Link>Global</Link> 
+              <Link to="/">Love Code</Link>
+              <Link to="/">Global</Link> 
             </>
           )}
         </Group>

@@ -9,15 +9,16 @@ import {
   TitleLogin,
   Wrapper,
   ErrorElement,
-} from "./sytle";
+} from "./style";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import { MdEmail, MdLock } from "react-icons/md";
-import { useForm, Controller } from "react-hook-form";
+import { useForm, Controller, type SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginShema } from "../../schemas/yupSchema";
 import { Link, useNavigate } from "react-router-dom";
 import { userApi } from "../../api/userApi";
+import { type ILoginFormData } from "./types"
 //import banner from "../../assets/banner.png";
 
 export default function Login() {
@@ -25,11 +26,11 @@ export default function Login() {
     control,
     formState: { errors },
     handleSubmit,
-  } = useForm({ resolver: yupResolver(loginShema), mode: "onChange" });
+  } = useForm<ILoginFormData>({ resolver: yupResolver(loginShema), mode: "onChange" });
   const navigate = useNavigate(); 
 
 
-  const onSubmit = async (formData) => {
+  const onSubmit: SubmitHandler<ILoginFormData> = async (formData) => {
     console.log(formData);
 
     try {

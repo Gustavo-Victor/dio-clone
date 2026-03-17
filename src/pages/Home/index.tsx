@@ -1,5 +1,5 @@
 import Button from "../../components/Button";
-import { Container, Title, TextContent, TitleHighLight } from "./sytle";
+import { Container, Title, TextContent, TitleHighLight } from "./style";
 import banner from "../../assets/banner.png";
 import { Link } from "react-router-dom";
 
@@ -14,13 +14,13 @@ export default function Home() {
         <TextContent>
           Master the technologies used by the world's most innovative companies and embrace your new professional challenge, evolving in community with the best experts.
         </TextContent>
-        <Link>
+        <Link to="/register">
           <Button full={true} variant="secondary">Start Now</Button>
         </Link>
         
       </div>
       <div>
-        <img src={banner} alt="DIO main banner" tittle="banner" />
+        <img src={banner} alt="DIO main banner" title="banner" />
       </div>
     </Container>
   );

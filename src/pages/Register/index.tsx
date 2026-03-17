@@ -6,15 +6,16 @@ import {
   TitleLogin,
   Wrapper,
   ErrorElement,
-} from "./sytle";
+} from "./style";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import { MdPerson, MdEmail, MdLock } from "react-icons/md";
-import { useForm, Controller } from "react-hook-form";
+import { useForm, Controller, type SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "../../schemas/yupSchema";
 import { Link, useNavigate } from "react-router-dom";
 import { userApi } from "../../api/userApi";
+import { type IRegisterFormData } from "../Login/types";
 //import banner from "../../assets/banner.png";
 
 export default function Register() {
@@ -22,11 +23,11 @@ export default function Register() {
     control,
     formState: { errors },
     handleSubmit,
-  } = useForm({ resolver: yupResolver(registerSchema), mode: "onChange" });
+  } = useForm<IRegisterFormData>({ resolver: yupResolver(registerSchema), mode: "onChange" });
 
   const navigate = useNavigate(); 
 
-  const onSubmit = async (formData) => {
+  const onSubmit: SubmitHandler<IRegisterFormData> = async (formData) => {
     console.log(formData);
     let { name, email, password } = formData; 
   

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { type Ifeed } from "./types";
 
 export const Container = styled.main`
   width: 100%;
@@ -31,7 +32,7 @@ export const TitleHighlight = styled.h3`
   margin-bottom: 24px;
 `;
 
-export const Column = styled.div`
-  flex: ${({ flex }) => flex};
+export const Column = styled.div<Ifeed>`
+  flex: ${({ $flex }) => $flex};
   padding-right: 24px;
 `;

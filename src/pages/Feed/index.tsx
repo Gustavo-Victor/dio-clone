@@ -5,7 +5,7 @@ import UserInfo from "../../components/UserInfo";
 export default function Feed() {
   return (
     <Container>
-      <Column flex={3}>
+      <Column $flex={3}>
         <Title>Feed</Title>
         <Card />
         <Card />
@@ -14,7 +14,7 @@ export default function Feed() {
         <Card />
         <Card />
       </Column>
-      <Column flex={1}>
+      <Column $flex={1}>
         <TitleHighlight>Weekly Ranking</TitleHighlight>
         <UserInfo
           name={"Gustavo Victor"}
