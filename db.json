@@ -1,13 +1,13 @@
 {
   "users": [
     {
-      "id": "1111",
+      "id": "111e",
       "name": "João Barbosa",
       "email": "joaobarbosa@gmail.com",
       "password": "123456"
     },
     {
-      "id": "2222",
+      "id": "222f",
       "name": "Sara Vitória",
       "email": "saravitoria@gmail.com",
       "password": "111111"
@@ -29,6 +29,12 @@
       "name": "Daniel Lopez",
       "email": "daniellopez@outlook.com",
       "password": "444444"
+    },
+    {
+      "id": "f62e",
+      "name": "Benedito Mauro",
+      "email": "beneditomauro@gmail.com",
+      "password": "999999"
     }
   ]
 }

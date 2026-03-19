@@ -9,11 +9,13 @@ import {
 } from "./style";
 import Button from "../Button";
 import logo from "../../assets/logo-dio.png";
+import { useAuth } from "../../hooks/useAuth";
 //import { useEffect } from "react";
 
 export default function Header() {
   const { pathname } = useLocation();
-  const authenticated = false; 
+  const { user, logout } = useAuth();
+  //const authenticated = false; 
 
   // useEffect(() => {
   //   console.log(pathname)
@@ -29,20 +31,22 @@ export default function Header() {
           <Link to={"/"}>
             <img src={logo} alt="colored DIO logo" title="DIO Logo" />
           </Link>
-          {authenticated && (
+          {user && JSON.stringify(user) != "{}" && (
             <>
               <SearchInputContainer>
               <Input type="text" placeholder="Search..." />
               </SearchInputContainer>
-              <Link to="/">Love Code</Link>
-              <Link to="/">Global</Link> 
+              <Link to="/feed">Love Code</Link>
+              <Link to="/feed">Global</Link> 
             </>
           )}
         </Group>
         <Group>
-          {authenticated ? 
+          {user && JSON.stringify(user) != "{}" ? 
             <>
               <UserPicture src="https://avatars.githubusercontent.com/u/81335575?v=4" />
+              <span>{user.name}</span>
+              <Button onClick={logout}>Logout</Button>
             </>
            : 
             <>

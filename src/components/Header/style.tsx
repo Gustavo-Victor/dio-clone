@@ -8,6 +8,10 @@ export const Wrapper = styled.header`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    span {
+        color: #fff;
+    }
 `; 
 
 export const Nav = styled.nav`

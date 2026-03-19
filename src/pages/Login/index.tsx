@@ -16,9 +16,10 @@ import { MdEmail, MdLock } from "react-icons/md";
 import { useForm, Controller, type SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginShema } from "../../schemas/yupSchema";
-import { Link, useNavigate } from "react-router-dom";
-import { userApi } from "../../api/userApi";
+import { Link } from "react-router-dom";
 import { type ILoginFormData } from "./types"
+import { useContext } from "react";
+import { AuthContext } from "../../context/Auth"; 
 //import banner from "../../assets/banner.png";
 
 export default function Login() {
@@ -27,36 +28,11 @@ export default function Login() {
     formState: { errors },
     handleSubmit,
   } = useForm<ILoginFormData>({ resolver: yupResolver(loginShema), mode: "onChange" });
-  const navigate = useNavigate(); 
-
+  const { login } = useContext(AuthContext);
 
   const onSubmit: SubmitHandler<ILoginFormData> = async (formData) => {
     console.log(formData);
-
-    try {
-      const { email, password } = formData;
-      const { data } = await userApi.get(`/users?email=${email}`); 
-
-      if(data.length > 0) {
-        const responseUser = data[0]; 
-
-        if(responseUser.password !== password) {
-          window.alert("Wrong password"); 
-          
-          return ;
-        } else {
-          window.alert("User logged in");
-          navigate("/feed"); 
-        }
-      } else {
-        window.alert("User does not exist"); 
-        return ;
-      }
-
-    } catch(e) {
-      window.alert("Sorry. Try again later.");
-      console.log(e);
-    };
+    await login(formData); 
   }
 
   return (

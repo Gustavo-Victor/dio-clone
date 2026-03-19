@@ -13,9 +13,10 @@ import { MdPerson, MdEmail, MdLock } from "react-icons/md";
 import { useForm, Controller, type SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "../../schemas/yupSchema";
-import { Link, useNavigate } from "react-router-dom";
-import { userApi } from "../../api/userApi";
+import { Link } from "react-router-dom";
 import { type IRegisterFormData } from "../Login/types";
+import { useContext } from "react";
+import { AuthContext } from "../../context/Auth";
 //import banner from "../../assets/banner.png";
 
 export default function Register() {
@@ -25,35 +26,11 @@ export default function Register() {
     handleSubmit,
   } = useForm<IRegisterFormData>({ resolver: yupResolver(registerSchema), mode: "onChange" });
 
-  const navigate = useNavigate(); 
+  const { register } = useContext(AuthContext);
 
   const onSubmit: SubmitHandler<IRegisterFormData> = async (formData) => {
     console.log(formData);
-    let { name, email, password } = formData; 
-  
-    try {
-      const { data } = await userApi.get(`/users?email=${email}`); 
-
-      if(data.length > 0) {
-        window.alert("This email is already in use. Enter another one."); 
-        return ;
-      } else {
-        const objModel = {
-          name: name.trim(),
-          email: email.trim(), 
-          password: password.trim()
-        }; 
-
-        await userApi.post("/users", objModel);   
-        window.alert("User successfully registered!"); 
-        navigate("/feed"); 
-      }
-    } catch(e) {
-      window.alert("Sorry. Try again later.");
-      console.log(e);
-    }
-    
-    
+    await register(formData);   
   };
 
   return (
